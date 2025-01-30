@@ -9,11 +9,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "export": "next export",
     "start": "next start",
     "lint": "next lint && prettier --check .",
     "format": "prettier --write .",
     "bex": "next build && next export",
-    "deploy": "gh-pages -d out -b gh-pages"
+    "deploy": "npm run export && gh-pages -d out"
   },
   "dependencies": {
     "@apollo/client": "^3.3.21",
