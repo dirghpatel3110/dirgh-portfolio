@@ -20,7 +20,7 @@ const GreetingLottie = ({ animationPath }: Props) => {
 
   return (
     <div onClick={() => null}>
-      <Lottie options={defaultOptions} />
+      <Lottie options={defaultOptions as any} />
     </div>
   );
 };
