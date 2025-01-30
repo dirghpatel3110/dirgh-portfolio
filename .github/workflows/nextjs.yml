@@ -36,4 +36,4 @@ jobs:
         npm install --legacy-peer-deps gh-pages --save-dev
         npm run deploy
       env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Automatically provided by GitHub Actions
