@@ -26,6 +26,11 @@ jobs:
         npm run build
         npm run export
 
+    - name: Set up Git user
+      run: |
+        git config --global user.email "dirghpatel3110@gmail.com"
+        git config --global user.name "dirghpatel3110"
+
     - name: Deploy to GitHub Pages
       run: |
         npm install --legacy-peer-deps gh-pages --save-dev
