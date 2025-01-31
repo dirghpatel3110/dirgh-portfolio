@@ -1,46 +1,46 @@
-name: Deploy Portfolio to GitHub Pages
+# name: Deploy Portfolio to GitHub Pages
 
-on:
-  push:
-    branches:
-      - main  # Trigger deploy on push to the 'main' branch
+# on:
+#   push:
+#     branches:
+#       - main  # Trigger deploy on push to the 'main' branch
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+#     steps:
+#       - name: Checkout Repository
+#         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'  # Make sure the version matches your project
+#       - name: Set up Node.js
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: '18'  # Make sure the version matches your project
 
-      - name: Install Dependencies
-        run: |
-          npm install --legacy-peer-deps
+#       - name: Install Dependencies
+#         run: |
+#           npm install --legacy-peer-deps
 
-      - name: Install gh-pages with legacy peer deps
-        run: |
-          npm install gh-pages --save-dev --legacy-peer-deps
+#       - name: Install gh-pages with legacy peer deps
+#         run: |
+#           npm install gh-pages --save-dev --legacy-peer-deps
 
-      - name: Build Next.js App
-        run: |
-          npm run build
+#       - name: Build Next.js App
+#         run: |
+#           npm run build
 
-      - name: Export Next.js App
-        run: |
-          npm run export
+#       - name: Export Next.js App
+#         run: |
+#           npm run export
 
-      - name: Set Git identity for gh-pages deployment
-        run: |
-          git config --global user.name "dirghpatel3110"
-          git config --global user.email "dirghpatel3110@gmail.com"
+#       - name: Set Git identity for gh-pages deployment
+#         run: |
+#           git config --global user.name "dirghpatel3110"
+#           git config --global user.email "dirghpatel3110@gmail.com"
 
-      - name: Deploy to GitHub Pages
-        run: |
-          npx gh-pages -d out -r https://$GH_TOKEN@github.com/dirghpatel3110/dirgh-portfolio.git -b gh-pages
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}  # Using the secret here
+#       - name: Deploy to GitHub Pages
+#         run: |
+#           npx gh-pages -d out -r https://$GH_TOKEN@github.com/dirghpatel3110/dirgh-portfolio.git -b gh-pages
+#         env:
+#           GH_TOKEN: ${{ secrets.GH_TOKEN }}  # Using the secret here
