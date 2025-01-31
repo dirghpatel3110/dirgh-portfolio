@@ -3,7 +3,7 @@ name: Deploy Portfolio to GitHub Pages
 on:
   push:
     branches:
-      - main  # Deploy when changes are pushed to the 'main' branch
+      - main  # Trigger deploy on push to the 'main' branch
 
 jobs:
   deploy:
@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'  # Use the latest version or match the version in your project
+          node-version: '18'  # Make sure the version matches your project
 
       - name: Install Dependencies
         run: |
@@ -30,8 +30,14 @@ jobs:
         run: |
           npm run export
 
+      - name: Set Git identity for gh-pages deployment
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+
       - name: Deploy to GitHub Pages
         run: |
           npm run deploy
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}  # Using the secret here
+
