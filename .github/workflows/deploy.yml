@@ -37,7 +37,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: |
-          npm run deploy
+          npm run export
+          gh-pages -d out -r https://$GH_TOKEN@github.com/dirghpatel3110/dirgh-portfolio.git -b gh-pages
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}  # Using the secret here
-
