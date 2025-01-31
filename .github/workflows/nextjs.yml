@@ -69,7 +69,7 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.runner }} next export
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4 # Updated to v4
+        uses: actions/upload-pages-artifact@v3 # Use v3, as v4 doesn't exist.
         with:
           path: ./out
 
@@ -82,4 +82,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4 # Ensure this is up-to-date as well!
+        uses: actions/deploy-pages@v4 # This is correct, as v4 exists for deploy-pages.
